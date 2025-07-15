@@ -8,7 +8,7 @@ import {getCurrentUserInfo} from "../user/userOperations";
 const authPersistConfig = {
 	key: 'auth',
 	storage,
-	whitelist: ["refreshToken", "accessToken", "sid", 'isLoggedIn'],
+	whitelist: ["refreshToken", "accessToken", "sid"],
 }
 
 const initialState = {

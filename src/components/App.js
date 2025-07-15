@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import {Routes, Route} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {getCurrentUserInfo} from "../redux/user/userOperations";
-import {getIsLoading, getIsLoggedIn} from "../redux/auth/authSelectors";
+import {getIsLoading, getIsLoggedIn, getAccessToken} from "../redux/auth/authSelectors";
 import {getIsOpenModal} from "../redux/dailyCalorieIntake/dailyCalorieIntake-selectors";
 import {isOpenModal} from "../redux/dailyCalorieIntake/dailyCalorieIntakeSlice";
 import MainPage from "../pages/mainPage/MainPage";
@@ -24,11 +24,11 @@ function App() {
     const dispatch = useDispatch();
     const showModal = useSelector(getIsOpenModal);
     const isLoading = useSelector(getIsLoading);
-    const isLoggedIn = useSelector(getIsLoggedIn);
+    const isAuth = useSelector(getAccessToken);
 
     useEffect(() => {
-        isLoggedIn && dispatch(getCurrentUserInfo());
-    }, [dispatch, isLoggedIn])
+        isAuth && dispatch(getCurrentUserInfo());
+    }, [dispatch])
 
     const toggleModal = () => {
         dispatch(isOpenModal(!showModal));

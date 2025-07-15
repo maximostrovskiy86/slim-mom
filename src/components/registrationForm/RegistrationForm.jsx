@@ -46,10 +46,10 @@ const RegistrationForm = () => {
         }))
 
         resetForm();
+        console.log("response", response)
+        if (response.meta.requestStatus === "fulfilled") {
 
-        if (response.payload.status === 201) {
-
-            notifySuccessCreated(response.payload.data.email, response.payload.data.username);
+            notifySuccessCreated(response.meta.arg.email, response.meta.arg.username);
             navigate("/login");
 
             return;
