@@ -77,6 +77,18 @@ const authSlice = createSlice({
 			.addCase(getCurrentUserInfo.fulfilled, (state, _) => {
 				state.isLoggedIn = true;
 			})
+			
+			// refreshToken reducer
+			.addCase(authOperations.refreshToken.pending, handlePending)
+			.addCase(authOperations.refreshToken.fulfilled, (state,action) => {
+				state.accessToken = action.payload.accessToken;
+				state.refreshToken = action.payload.refreshToken;
+				state.sid = action.payload.sid;
+				state.isLoggedIn = true;
+				state.isLoading = false;
+				state.error = null;
+			})
+			.addCase(authOperations.refreshToken.rejected, handleRejected)
 		},
 });
 
