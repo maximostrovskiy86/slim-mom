@@ -1,23 +1,23 @@
 import {configureStore} from "@reduxjs/toolkit";
 import {
 	persistStore,
-	// FLUSH,
-	// REHYDRATE,
-	// PAUSE,
-	// PERSIST,
-	// PURGE,
-	// REGISTER,
+	FLUSH,
+	REHYDRATE,
+	PAUSE,
+	PERSIST,
+	PURGE,
+	REGISTER,
 } from 'redux-persist';
 import {dailyCalorieIntakeReducer} from "./dailyCalorieIntake/dailyCalorieIntakeSlice";
 import {authReducer} from "./auth/authSlice";
 import {userReducer} from "./user/userSlice";
 
-// const middleware = (getDefaultMiddleware) =>
-// 	 getDefaultMiddleware({
-// 		serializableCheck: {
-// 			ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-// 		},
-// 	});
+const middleware = (getDefaultMiddleware) =>
+	 getDefaultMiddleware({
+		serializableCheck: {
+			ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+		},
+	});
 
 
 export const store = configureStore({

@@ -68,8 +68,7 @@ const userSlice = createSlice({
                 state.error = action.payload;
                 state.isLoading = false;
             })
-
-
+            
             .addCase(getCurrentUserInfo.pending, (state, _) => {
                 state.isLoading = true;
             })
@@ -160,7 +159,7 @@ const userSlice = createSlice({
                 state.email = action.payload.data.user.email;
                 state.username = action.payload.data.user.username;
                 state.userData = action.payload.data.user.userData;
-                state.daySummary = action.payload.data.todaySummary;
+                // state.daySummary = {...action.payload.data.todaySummary};
                 state.error = null;
             })
             .addCase(authOperations.login.rejected, (state, action) => {
