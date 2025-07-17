@@ -71,7 +71,7 @@ const DairyPage = () => {
             }
             {enterUserInitialValues() && isOpen && !biggerThan768 &&
                 <Modal toggleModal={toggleModal}>
-                    <DiaryAddProductForm date={date}/>
+                    <DiaryAddProductForm date={date} setIsOpen={setIsOpen}/>
                 </Modal>
             }
         </DairyPageContainer>

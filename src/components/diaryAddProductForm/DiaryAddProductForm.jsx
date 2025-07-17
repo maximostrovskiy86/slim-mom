@@ -12,7 +12,7 @@ import {toast} from "react-toastify";
 import {useNavigate} from "react-router-dom";
 
 
-const DiaryAddProductForm = ({date}) => {
+const DiaryAddProductForm = ({date, setIsOpen}) => {
 	const [nameProduct, setNameProduct] = useState("");
 	const [products, setProducts] = useState([]);
 	const [weight, setWeight] = useState('');
@@ -73,6 +73,8 @@ const DiaryAddProductForm = ({date}) => {
 		
 		setNameProduct("");
 		setWeight("");
+		
+		setIsOpen(false);
 	}
 	
 	const findSelectedProduct = (valueProduct) => {

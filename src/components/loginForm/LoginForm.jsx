@@ -8,8 +8,8 @@ import {toast} from "react-toastify";
 
 
 const LoginForm = () => {
-    const [email, setEmail] = useState("cara@car.com");
-    const [password, setPassword] = useState("2wsx@WSX");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
