@@ -48,7 +48,7 @@ const LoginForm = () => {
         }
 
         if (payload.status === 200) {
-            navigate("/calculator", {replace: true});
+            navigate("/dairy", {replace: true});
         }
     }
 

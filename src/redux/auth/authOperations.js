@@ -49,20 +49,16 @@ const refreshToken = createAsyncThunk('auth/refresh',
 	async (_, thunkAPI) => {
 		
 		const state = thunkAPI.getState();
-		console.log("stateAuth", state)
 		const persistSid = state.auth.sid;
 		const persistRefreshToken = state.auth.accessToken;
 		
 		if (persistRefreshToken === null) {
 			return;
 		}
-		console.log("Sid", state.auth.sid)
-		console.log("RefreshToken", state.auth)
 		
 		token.set(persistRefreshToken);
 		try {
 			const response = await axios.post('/auth/refresh', {"sid": persistSid});
-			console.log("persistTokenSid", response)
 			return response;
 		} catch (err) {
 			return thunkAPI.rejectWithValue(err.message);

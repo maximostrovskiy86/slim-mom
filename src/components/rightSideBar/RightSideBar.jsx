@@ -8,8 +8,6 @@ const RightSideBar = () => {
 	const userTodaySummary = useSelector(getUserDaySummary);
 	const userIsLoginDailyRate = useSelector(getUserData);
 	const currentDate = useSelector(getSelectedDate);
-	console.log("userTodaySummary", userTodaySummary)
-	console.log("getSelectedDate", currentDate)
 	
 	return (
 		<RightSideBarContainer className='right-sidebar'>

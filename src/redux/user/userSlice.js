@@ -85,7 +85,6 @@ const userSlice = createSlice({
                 state.isLoading = false;
             })
 
-
             .addCase(addUserProductByDay.pending, (state, _) => {
                 state.isLoading = true;
             })
