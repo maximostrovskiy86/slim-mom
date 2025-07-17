@@ -74,8 +74,18 @@ const authSlice = createSlice({
 			})
 			.addCase(authOperations.logOut.rejected, handleRejected)
 			
+			.addCase(getCurrentUserInfo.pending, (state, _) => {
+				state.isLoading = true;
+			})
+			
 			.addCase(getCurrentUserInfo.fulfilled, (state, _) => {
+				state.isLoading = false;
 				state.isLoggedIn = true;
+			})
+			
+			.addCase(getCurrentUserInfo.rejected, (state, action) => {
+				state.error = action.payload;
+				state.isLoading = false;
 			})
 			
 			// refreshToken reducer

@@ -2,16 +2,18 @@ import React from "react";
 import {RightSideBarContainer, SummaryItem} from "./RightSideBar.styled";
 import {useSelector} from "react-redux";
 import {getUserData} from "../../redux/user/userSelectors";
-import {getUserDaySummary} from "../../redux/user/userSelectors";
+import {getUserDaySummary, getSelectedDate} from "../../redux/user/userSelectors";
 
 const RightSideBar = () => {
 	const userTodaySummary = useSelector(getUserDaySummary);
 	const userIsLoginDailyRate = useSelector(getUserData);
-	
+	const currentDate = useSelector(getSelectedDate);
+	console.log("userTodaySummary", userTodaySummary)
+	console.log("getSelectedDate", currentDate)
 	
 	return (
 		<RightSideBarContainer className='right-sidebar'>
-			<h3>Summary for date {userTodaySummary.date}</h3>
+			<h3>Summary for date {currentDate}</h3>
 			<SummaryItem><span>Calories left to consume</span><span>{Math.round(userTodaySummary?.kcalLeft) || 0} kcal</span></SummaryItem>
 			<SummaryItem><span>Calories consumed</span><span>{Math.round(userTodaySummary?.kcalConsumed) || 0} kcal</span></SummaryItem>
 			<SummaryItem><span>Daily Rate</span><span>{userTodaySummary?.dailyRate || 0} kcal</span></SummaryItem>
